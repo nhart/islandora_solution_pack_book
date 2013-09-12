@@ -17,7 +17,7 @@ function islandora_book_preprocess_islandora_book_book(array &$variables) {
     'page_progression' => islandora_paged_content_get_page_progression($object),
   );
   module_load_include('inc', 'islandora', 'includes/solution_packs');
-  $viewer = islandora_get_viewer($params, 'islandora_book_viewers');
+  $viewer = islandora_get_viewer($params, 'islandora_book_viewers', $variables['object']);
   if ($viewer) {
     $variables['viewer'] = $viewer;
   }
@@ -45,7 +45,7 @@ function islandora_book_preprocess_islandora_book_page(array &$variables) {
     $params['jp2_url'] = $jp2_url;
   }
 
-  $viewer = islandora_get_viewer($params, 'islandora_book_page_viewers');
+  $viewer = islandora_get_viewer($params, 'islandora_book_page_viewers', $variables['object']);
   if ($viewer) {
     $variables['viewer'] = $viewer;
   }

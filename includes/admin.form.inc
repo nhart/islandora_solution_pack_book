@@ -49,11 +49,11 @@ function islandora_book_admin_settings_form(array $form, array &$form_state) {
   );
 
   module_load_include('inc', 'islandora', 'includes/solution_packs');
-  $form += islandora_viewers_form('islandora_book_viewers', NULL, 'islandora:bookCModel');
+  $form += islandora_viewers_form('islandora_book_viewers', array('application/pdf'), 'islandora:bookCModel');
   $form['book_viewers'] = $form['viewers'];
   $form['book_viewers']['#title'] = t('Book Viewers');
   unset($form['viewers']);
-  $form += islandora_viewers_form('islandora_book_page_viewers', 'image/jp2');
+  $form += islandora_viewers_form('islandora_book_page_viewers', array('image/jp2', 'application/pdf'));
   $form['page_viewers'] = $form['viewers'];
   $form['page_viewers']['#title'] = t('Page Viewers');
   unset($form['viewers']);
